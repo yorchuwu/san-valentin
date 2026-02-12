@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nahomi, ¿quieres ser mi San Valentín?</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #siBtn {
+      background: #ff4d6d;
+      color: white;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    #noBtn {
+      background: #ffffff;
+      color: #ff4d6d;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .mensaje-final {
+      display: none;
+      font-size: 2rem;
+      margin-top: 20px;
+      animation: aparecer 0.8s ease forwards;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .corazon {
+      font-size: 2rem;
+      animation: latido 1s infinite;
+    }
+
+    @keyframes latido {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💘 ¿Quieres ser mi San Valentín? 💘</h1>
+    <p>
+      Prometo chocolates, risas, abrazos infinitos y hacerte sentir la persona más especial del mundo.
+    </p>
+
+    <div class="buttons">
+      <button id="siBtn">Sí 💖</button>
+      <button id="noBtn">No 😢</button>
+    </div>
+
+    <div class="mensaje-final" id="mensajeFinal">
+      <div class="corazon">❤️❤️❤️</div>
+      <div>TE AMOOO Nahomi 💞</div>
+    </div>
+  </div>
+
+  <script>
+    const siBtn = document.getElementById('siBtn');
+    const noBtn = document.getElementById('noBtn');
+    const mensajeFinal = document.getElementById('mensajeFinal');
+
+    let size = 1;
+
+    noBtn.addEventListener('click', () => {
+      size += 0.2;
+      siBtn.style.transform = `scale(${size})`;
+      siBtn.style.fontSize = `${1.1 * size}rem`;
+    });
+
+    siBtn.addEventListener('click', () => {
+      mensajeFinal.style.display = 'block';
+      siBtn.style.display = 'none';
+      noBtn.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
